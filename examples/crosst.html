@@ -229,9 +229,11 @@
 					requestAnimFrame(drawLoop);
 					overlayCC.clearRect(0, 0, vid_width, vid_height);
 					//psrElement.innerHTML = "score :" + ctrack.getScore().toFixed(4);
-					if (ctrack.getCurrentPosition()) {
+					var pos = ctrack.getCurrentPosition();
+					if (pos){
+					// if (ctrack.getCurrentPosition()) {
 						ctrack.draw(overlay);
-						crosst(ctrack);
+						crosst(pos);
 					}
 				}
 
