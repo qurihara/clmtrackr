@@ -257,7 +257,8 @@
 // std(h/l) + std(w/l)
 // std(l)が大きいと、そもそも顔フィットが不安定、あるいは顔を動かしすぎ。
 				var q = new Queue();
-				var nHistory=100;
+				var nHistory=50;
+				var showInterval = 500:
 				function crosst(pos){
 					// console.log(pos);
 					var l = dist2(pos[33],pos[62]);//dist2(pos[0],pos[14]);
@@ -322,7 +323,7 @@
 				var showstats = function(){
 					console.log("size: " + q.size() + ", avg: " + q.average() + ", sd: " + q.sd());
   			}
-  			setInterval(showstats, 500);
+  			setInterval(showstats, showInterval);
 			</script>
 		</div>
 	</body>
