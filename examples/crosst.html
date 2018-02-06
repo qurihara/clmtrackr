@@ -259,7 +259,7 @@
 				var q = new Queue();
 				var nHistory=100;
 				function crosst(pos){
-					console.log(pos);
+					// console.log(pos);
 					var l = dist2(pos[0],pos[14]);
 					var w = dist2(pos[44],pos[50]);
 					var h = dist2(pos[57],pos[60]);
@@ -268,7 +268,7 @@
 					if (q.size > nHistory){
 						q.dequeue();
 					}
-					console.log(q.average());
+					console.log("avg: " + q.average() + ", var: " + q.var());
 				}
 				function dist2(p1,p2){
 					return (p1[0]-p2[0])*(p1[0]-p2[0]) + (p1[1]-p2[1])*(p1[1]-p2[1]);
@@ -299,6 +299,17 @@
 					if( this.__a.length > 0 ) {
 						for(var i=0;i<this.__a.length;i++){
 							s += i;
+						}
+						s = s/this.__a.length;
+					}
+					return s;
+				}
+				Queue.prototype.var = function() {
+					var a = average();
+					var s = 0;
+					if( this.__a.length > 0 ) {
+						for(var i=0;i<this.__a.length;i++){
+							s = s + (i-a)*(i-a);
 						}
 						s = s/this.__a.length;
 					}
