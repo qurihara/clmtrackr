@@ -265,9 +265,9 @@
 					var h = dist2(pos[57],pos[60]);
 					var d = (w+h)/l;
 					q.enqueue(d);
-					if (q.size > nHistory){
+					// if (q.size > nHistory){
 						q.dequeue();
-					}
+					// }
 					// console.log("avg: " + q.average() + ", var: " + q.var());
 				}
 				function dist2(p1,p2){
@@ -315,9 +315,12 @@
 					}
 					return s;
 				}
+				Queue.prototype.sd = function() {
+					var a = Math.sqrt(this.sd());
+				}
 
 				var showstats = function(){
-					console.log("size: " + q.size() + ", avg: " + q.average() + ", var: " + q.var());
+					console.log("size: " + q.size() + ", avg: " + q.average() + ", sd: " + q.sd());
   			}
   			setInterval(showstats, 500);
 			</script>
